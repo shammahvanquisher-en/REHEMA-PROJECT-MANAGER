@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10243a">
+  <meta name="description" content="Rehema House Property Manager">
+  <title>Rehema House Property Manager</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <div id="toast" class="toast" role="status"></div>
+
+  <section id="authScreen" class="auth-screen">
+    <div class="auth-card">
+      <div class="brand-mark">RH</div>
+      <p class="eyebrow">REHEMA ESTATE</p>
+      <h1>Property Manager</h1>
+      <p class="muted">Manage your properties, tenants and payments.</p>
+      <form id="loginForm">
+        <label for="email">Email address</label>
+        <input id="email" type="email" autocomplete="username" required
+          placeholder="Enter your email">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password"
+          required placeholder="Enter your password">
+        <button class="btn primary full" type="submit">Sign in</button>
+      </form>
+      <button id="forgotPassword" class="text-button">Forgot password?</button>
+      <p class="muted small">Private access for authorised users only.</p>
+    </div>
+  </section>
+
+  <div id="app" class="app hidden">
+    <aside id="sidebar" class="sidebar">
+      <div class="brand">
+        <div class="brand-mark small-mark">RH</div>
+        <div><strong>REHEMA ESTATE</strong><small>Property Manager</small></div>
+      </div>
+
+      <nav class="navigation">
+        <p class="nav-heading">WORKSPACE</p>
+        <button class="nav-link active" data-page="dashboard">▦ <span>Dashboard</span></button>
+        <button class="nav-link" data-page="record">＋ <span>Record Manager</span></button>
+        <button class="nav-link" data-page="receipts">▤ <span>Receipts</span></button>
+        <button class="nav-link" data-page="history">◷ <span>Payment History</span></button>
+        <button class="nav-link" data-page="tenants">♙ <span>Tenants</span></button>
+        <button class="nav-link" data-page="houses">⌂ <span>Houses</span></button>
+        <button class="nav-link" data-page="arrears">↗ <span>Areas / Arrears</span></button>
+        <button class="nav-link" data-page="reports">▧ <span>Reports & Statements</span></button>
+        <p class="nav-heading">PREFERENCES</p>
+        <button class="nav-link" data-page="settings">⚙ <span>Settings</span></button>
+      </nav>
+
+      <div class="sidebar-bottom">
+        <span class="online-dot"></span><span id="connectionStatus">Checking connection…</span>
+        <button id="signOut" class="btn outline full">Sign out</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button id="menuToggle" class="icon-button" aria-label="Toggle menu">☰</button>
+        <div>
+          <p class="eyebrow">REHEMA ESTATE</p>
+          <h2 id="pageTitle">Dashboard</h2>
+        </div>
+        <div class="topbar-right">
+          <span id="syncStatus" class="status-pill">Checking sync</span>
+          <button id="refreshButton" class="btn outline">↻ Refresh</button>
+        </div>
+      </header>
+
+      <div id="pageContent" class="content">
+        <section class="welcome">
+          <div><p class="eyebrow">PROPERTY OVERVIEW</p><h1>Welcome back</h1>
+          <p class="muted">Here's what's happening with your estate.</p></div>
+          <button class="btn primary" data-go="record">＋ Record payment</button>
+        </section>
+        <div class="loading">Loading your dashboard…</div>
+      </div>
+     </main>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
